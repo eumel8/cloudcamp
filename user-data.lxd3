@@ -1,0 +1,16 @@
+#cloud-config
+hostname: lxd3
+fqdn: lxd3.frank.bmp.ref.internal.app.telekomcloud.com
+manage_etc_hosts: true
+mounts:
+ - [ /dev/vdb1, /var/lib/lxd ]
+packages:
+ - bridge-utils
+ - criu
+ - zfsutils-linux
+runcmd:
+ - 'apt-get update'
+ - wait 30
+ - 'systemctl restart lxd.socket'
+ - 'echo DONE'
+

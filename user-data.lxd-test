@@ -1,0 +1,11 @@
+#cloud-config
+hostname: lxd-test
+fqdn: lxd-test.frank.bmp.ref.internal.app.telekomcloud.com
+manage_etc_hosts: true
+packages:
+ - criu
+ - zfsutils-linux
+runcmd:
+ - 'apt-get update'
+ - 'echo DONE'
+
